@@ -1,6 +1,6 @@
 # _Mandrill_ OMG Microservice
 
-[![Open Microservice Guide](https://img.shields.io/badge/OMG-enabled-brightgreen.svg?style=for-the-badge)](https://microservice.guide)
+[![Open Microservice Guide](https://img.shields.io/badge/OMG%20Enabled-👍-green.svg?)](https://microservice.guide)
 [![Build Status](https://travis-ci.com/heaptracetechnology/microservice-mandrill.svg?branch=master)](https://travis-ci.com/heaptracetechnology/microservice-mandrill)
 [![codecov](https://codecov.io/gh/heaptracetechnology/microservice-mandrill/branch/master/graph/badge.svg)](https://codecov.io/gh/heaptracetechnology/microservice-mandrill)
 
