@@ -14,7 +14,13 @@ type Email struct {
 	Message      string `json:"message,omitempty"`
 	From         string `json:"from,omitempty"`
 	To           string `json:"to,omitempty"`
-	TemplateName string `json:"template_name,omitempty"`
+	TemplateName string `json:"templateName,omitempty"`
+}
+
+type Message struct {
+	Success    string `json:"success"`
+	Message    string `json:"message"`
+	StatusCode int    `json:"statusCode"`
 }
 
 //Send Email
@@ -30,24 +36,27 @@ func Send(responseWriter http.ResponseWriter, request *http.Request) {
 
 	apiKey := os.Getenv("API_KEY")
 
-	mandrillApi, err := gochimp.NewMandrill(apiKey)
-	if err != nil {
-		result.WriteErrorResponse(responseWriter, err)
+	if apiKey == "" {
+		message := Message{"false", "Please provide API KEY", http.StatusBadRequest}
+		bytes, _ := json.Marshal(message)
+		result.WriteJsonResponse(responseWriter, bytes, http.StatusBadRequest)
 		return
 	}
+
+	mandrillAPI, _ := gochimp.NewMandrill(apiKey)
 
 	templateName := param.TemplateName
 	contentVar := gochimp.Var{"main", param.Message}
 	content := []gochimp.Var{contentVar}
 
-	_, err = mandrillApi.TemplateAdd(templateName, fmt.Sprintf("%s", contentVar.Content), true)
+	_, err := mandrillAPI.TemplateAdd(templateName, fmt.Sprintf("%s", contentVar.Content), true)
 	if err != nil {
 		result.WriteErrorResponse(responseWriter, err)
 		return
 	}
 
-	defer mandrillApi.TemplateDelete(templateName)
-	renderedTemplate, err := mandrillApi.TemplateRender(templateName, content, nil)
+	defer mandrillAPI.TemplateDelete(templateName)
+	renderedTemplate, err := mandrillAPI.TemplateRender(templateName, content, nil)
 
 	if err != nil {
 		result.WriteErrorResponse(responseWriter, err)
@@ -65,7 +74,7 @@ func Send(responseWriter http.ResponseWriter, request *http.Request) {
 		To:        recipients,
 	}
 
-	sendResponse, respErr := mandrillApi.MessageSend(message, false)
+	sendResponse, respErr := mandrillAPI.MessageSend(message, false)
 	if respErr != nil {
 		result.WriteErrorResponse(responseWriter, respErr)
 		return
