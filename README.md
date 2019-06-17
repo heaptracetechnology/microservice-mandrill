@@ -1,8 +1,8 @@
 # _Mandrill_ OMG Microservice
 
 [![Open Microservice Guide](https://img.shields.io/badge/OMG%20Enabled-👍-green.svg?)](https://microservice.guide)
-[![Build Status](https://travis-ci.com/omg-services/mandrill.svg?branch=master)](https://travis-ci.com/omg-services/mandrill)
-[![codecov](https://codecov.io/gh/omg-services/mandrill/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/mandrill)
+[![Build Status](https://travis-ci.com/heaptracetechnology/microservice-mandrill.svg?branch=master)](https://travis-ci.com/heaptracetechnology/microservice-mandrill)
+[![codecov](https://codecov.io/gh/heaptracetechnology/microservice-mandrill/branch/master/graph/badge.svg)](https://codecov.io/gh/heaptracetechnology/microservice-mandrill)
 
 An OMG service for Mandrill, is a powerful delivery service that can be used for personalized, one-to-one e-commerce emails, and automated transactional emails like password resets, order confirmations, and welcome messages.
 
@@ -27,4 +27,4 @@ $ omg run send -a from=<SENDER_MAIL_ADDRESS> -a to=<RECEIVER_EMAIL_ADDRESS> -a m
 **Note**: The OMG CLI requires [Docker](https://docs.docker.com/install/) to be installed.
 
 ## License
-[MIT License](https://github.com/omg-services/mandrill/blob/master/LICENSE).
+[MIT License](https://github.com/heaptracetechnology/microservice-mandrill/blob/master/LICENSE).

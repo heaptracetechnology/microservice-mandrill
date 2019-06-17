@@ -3,7 +3,7 @@ package messaging
 import (
 	"encoding/json"
 	"fmt"
-	result "github.com/omg-services/mandrill/result"
+	result "github.com/heaptracetechnology/microservice-mandrill/result"
 	"github.com/mattbaird/gochimp"
 	"net/http"
 	"os"
