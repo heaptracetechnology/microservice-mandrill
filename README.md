@@ -22,7 +22,7 @@ Curious to [learn more](https://docs.storyscript.io/)?
 
 ##### Send Email
 ```shell
-$ omg run send -a from=<SENDER_MAIL_ADDRESS> -a to=<RECEIVER_EMAIL_ADDRESS> -a message=<EMAIL_MESSAGE_BODY> -a template_name=<TEMPLATE_NAME> -a subject=<EMAIL_SUBJECT> -e API_KEY=<API_KEY>
+$ omg run send -a from=<SENDER_MAIL_ADDRESS> -a to=<RECEIVER_EMAIL_ADDRESS> -a message=<EMAIL_MESSAGE_BODY> -a templateName=<TEMPLATE_NAME> -a subject=<EMAIL_SUBJECT> -e API_KEY=<API_KEY>
 ```
 **Note**: The OMG CLI requires [Docker](https://docs.docker.com/install/) to be installed.
 
