@@ -11,11 +11,15 @@ import (
 	"os"
 )
 
-var apiKey = os.Getenv("MANDRILL_API_KEY")
+var (
+	apiKey = os.Getenv("MANDRILL_API_KEY")
+	from   = os.Getenv("MANDRILL_FROM")
+	to     = os.Getenv("MANDRILL_TO")
+)
 
 var _ = Describe("Send email", func() {
 
-	email := Email{From: "abc@example.com", To: "xyz@example.com", Subject: "Testing microservice", Message: "Any message to test", TemplateName: "Template"}
+	email := Email{From: from, To: to, Subject: "Testing microservice", Message: "Any message to test", TemplateName: "Template"}
 	requestBody := new(bytes.Buffer)
 	errr := json.NewEncoder(requestBody).Encode(email)
 	if errr != nil {
@@ -69,7 +73,7 @@ var _ = Describe("Send email", func() {
 var _ = Describe("Send email", func() {
 
 	os.Setenv("API_KEY", apiKey)
-	email := Email{From: "rohits@heaptrace.com", To: "demot636@gmail.com", Subject: "Testing microservice", Message: "Any message to test", TemplateName: "Welcome Text"}
+	email := Email{From: from, To: to, Subject: "Testing microservice", Message: "Any message to test", TemplateName: "Welcome Text"}
 	requestBody := new(bytes.Buffer)
 	errr := json.NewEncoder(requestBody).Encode(email)
 	if errr != nil {
