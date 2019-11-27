@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/heaptracetechnology/microservice-mandrill/route"
+	"github.com/oms-services/mandrill/route"
 	"log"
 	"net/http"
 )
