@@ -2,7 +2,7 @@ oms: 1
 info:
   version: 1.0.0
   title: Mandrill
-  description: This is a mandrill service
+  description: Wrapper for the Mandrill API
   contact:
     name: Open Microservices
     url: 'https://openmicroservices.org'
@@ -13,7 +13,7 @@ info:
 lifecycle:
   startup:
     command:
-      - microservice-mandrill
+      - mandrill
 actions:
   send:
     help: Send email
